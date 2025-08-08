@@ -1,12 +1,20 @@
 export class Vector {
-    x = 0;
-    y = 0;
-    z = 0;
+    x = null;
+    y = null;
+    z = null;
 
     constructor({ x, y, z }) {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    add({ rhs }) {
+        return new Vector({
+            x: this.x + rhs.x,
+            y: this.y + rhs.y,
+            z: this.z + rhs.z,
+        });
     }
 
     subtract({ rhs }) {
@@ -37,5 +45,21 @@ export class Vector {
         let y = this.y;
         let z = this.z;
         return x * rhs.x + y * rhs.y + z * rhs.z;
+    }
+
+    negative() {
+        return new Vector({
+            x: -this.x,
+            y: -this.y,
+            z: -this.z,
+        });
+    }
+
+    round() {
+        return new Vector({
+            x: Math.round(this.x),
+            y: Math.round(this.y),
+            z: Math.round(this.z),
+        });
     }
 }

@@ -14,11 +14,11 @@ export class Stage {
         this.primitives = [];
         let flower = new Flower({
             position: new Vector({
-                x: Screen.width / 2,
-                y: Screen.height / 2,
+                x: Screen.width / 4,
+                y: Screen.height / 4,
                 z: 0,
             }),
-            radius: Screen.width * 0.5,
+            radius: Screen.width * 0.75,
         });
         for (let i = 0; i < flower.primitives.length; i += 1) {
             let primitive = flower.primitives[i];
