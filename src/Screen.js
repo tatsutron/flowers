@@ -1,5 +1,5 @@
-const width = 32;
-const height = 32;
+const width = 128;
+const height = 128;
 
 export class Screen {
     static width = width;

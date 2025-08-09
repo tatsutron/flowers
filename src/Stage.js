@@ -12,17 +12,25 @@ export class Stage {
 
     reset() {
         this.primitives = [];
-        let flower = new Flower({
-            position: new Vector({
-                x: Screen.width / 4,
-                y: Screen.height / 4,
-                z: 0,
-            }),
-            radius: Screen.width * 0.75,
-        });
-        for (let i = 0; i < flower.primitives.length; i += 1) {
-            let primitive = flower.primitives[i];
-            this.primitives.push(primitive);
+        let numFlowers = 100;
+        let flowers = [];
+        for (let i = 0; i < numFlowers; i += 1) {
+            let flower = new Flower({
+                position: new Vector({
+                    x: Math.random() * Screen.width,
+                    y: Math.random() * Screen.height,
+                    z: -1000 * i,
+                }),
+                radius: Screen.width * 0.25,
+            });
+            flowers.push(flower);
+        }
+        for (let i = 0; i < numFlowers; i += 1) {
+            let flower = flowers[i];
+            for (let i = 0; i < flower.primitives.length; i += 1) {
+                let primitive = flower.primitives[i];
+                this.primitives.push(primitive);
+            }
         }
     }
 
@@ -31,7 +39,7 @@ export class Stage {
             origin: new Vector({
                 x,
                 y,
-                z: 999999,
+                z: 0,
             }),
             direction: new Vector({
                 x: 0,
@@ -60,7 +68,7 @@ export class Stage {
         if (nearestPrimitive !== null) {
             return nearestPrimitive.color;
         } else {
-            return 0xff00ff;
+            return 0xffffff;
         }
     }
 }
