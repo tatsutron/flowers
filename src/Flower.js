@@ -37,7 +37,7 @@ export class Flower {
             rhs: new Vector({
                 x: centerRadius,
                 y: 0,
-                z: -10,
+                z: -100,
             }),
         });
         for (let i = 0; i < this.numPetals; i += 1) {
@@ -54,7 +54,7 @@ export class Flower {
             this.primitives.push({
                 type: "sphere",
                 position: p1.round(),
-                radius: radius / 6,
+                radius: radius / 5,
                 color: this.petalColors[colorIndex],
             });
         }
